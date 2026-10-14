@@ -45,8 +45,22 @@ SHA-1 de la ROM patchée : `f59f3da99eb2f683c346305fdbd452b652ab1f9d`.
 
 ## Sources
 
-L'archive `Pokemon_HnS_FR_2.0.6-beta1_sources.zip` contient les sources du jeu.
-Elle se compile avec `make hns`, en suivant `INSTALL.md`, comme le projet d'origine.
+Les sources sont publiées sous forme de différence avec le projet d'origine.
+`Pokemon_HnS_FR_2.0.6-beta1.diff`, dans les *assets* de la release, contient toutes
+les modifications de cette version : traduction, améliorations de confort et outil
+du classeur des combats. Pour reconstituer les sources :
+
+```bash
+git clone https://github.com/PokemonHnS-Development/pokehns-expansion.git
+cd pokehns-expansion
+git checkout Release-v2.0.6
+git apply ../Pokemon_HnS_FR_2.0.6-beta1.diff
+make hns
+```
+
+`git apply` signale un avertissement d'espacement (« whitespace »). Il est attendu
+et sans conséquence. Pour la compilation, suivez `INSTALL.md`, comme pour le projet
+d'origine.
 
 La ROM est compilée **sans** l'option `release`. Le menu de débogage (R + Start)
 est donc accessible, et il est en anglais.
@@ -55,6 +69,7 @@ est donc accessible, et il est en anglais.
 
 `hns-combats.xlsx`, vierge, accompagne le jeu. Il compte quatre onglets, tous lus
 dans les sources du jeu :
+
 - la table des types ;
 - les combats de dresseurs, avec les équipes, niveaux, objets, talents et capacités ;
 - les rencontres sauvages ;
